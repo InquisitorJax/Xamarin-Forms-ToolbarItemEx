@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="XamarinForms.MainPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tb="clr-namespace:XamarinForms"
+             Title="MainPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="icon" Text="plain TB" />
+        <tb:ToolbarItemEx Icon="icon"
+                          IsVisible="{Binding ToolbarItem1Visible}"
+                          Text="TB 1" />
+        <tb:ToolbarItemEx Icon="icon"
+                          IsVisible="{Binding ToolbarItem2Visible}"
+                          Text="TB 2" />
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <StackLayout Padding="10">
+            <Label FontSize="20" Text="Toolbar Item Visible Bindings" />
+            <Label Text="Toggle the switches to add and remove toolbar items via ViewModel visibility bindings." />
+
+            <StackLayout Orientation="Horizontal">
+                <Switch IsToggled="{Binding ToolbarItem1Visible}" />
+                <Label Text="ToolbarItem 1 Visible: " />
+                <Label Text="{Binding ToolbarItem1Visible}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Switch IsToggled="{Binding ToolbarItem2Visible}" />
+                <Label Text="ToolbarItem 2 Visible: " />
+                <Label Text="{Binding ToolbarItem2Visible}" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
