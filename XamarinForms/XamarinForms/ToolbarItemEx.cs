@@ -29,14 +29,17 @@ namespace XamarinForms
 
             var items = item.ParentPage.ToolbarItems;
 
-            if (newVisible && !items.Contains(item))
+            Device.BeginInvokeOnMainThread(() =>
             {
-                items.Add(item);
-            }
-            else if (!newVisible && items.Contains(item))
-            {
-                items.Remove(item);
-            }
+                if (newVisible && !items.Contains(item))
+                {
+                    items.Add(item);
+                }
+                else if (!newVisible && items.Contains(item))
+                {
+                    items.Remove(item);
+                }
+            });
         }
     }
 }
