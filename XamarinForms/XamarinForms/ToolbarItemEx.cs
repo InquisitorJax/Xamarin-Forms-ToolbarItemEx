@@ -5,7 +5,7 @@ namespace XamarinForms
     public class ToolbarItemEx : ToolbarItem
     {
         //NOTE: Default value is true, because toolbar items are by default visible when added to the Toolbar
-        public static readonly BindableProperty IsVisibleProperty = BindableProperty.Create("IsVisible", typeof(bool), typeof(ToolbarItemEx), true, BindingMode.TwoWay, null, OnIsVisibleChanged);
+        public static readonly BindableProperty IsVisibleProperty = BindableProperty.Create(nameof(IsVisible), typeof(bool), typeof(ToolbarItemEx), true, BindingMode.TwoWay, null, OnIsVisibleChanged);
 
         public bool IsVisible
         {
@@ -18,20 +18,22 @@ namespace XamarinForms
             get { return Parent as ContentPage; }
         }
 
-        private static void OnIsVisibleChanged(BindableObject bindable, bool oldvalue, bool newvalue)
+        private static void OnIsVisibleChanged(BindableObject bindable, object oldvalue, object newvalue)
         {
             var item = bindable as ToolbarItemEx;
+
+            bool newVisible = (bool)newvalue;
 
             if (item.ParentPage == null)
                 return;
 
             var items = item.ParentPage.ToolbarItems;
 
-            if (newvalue && !items.Contains(item))
+            if (newVisible && !items.Contains(item))
             {
                 items.Add(item);
             }
-            else if (!newvalue && items.Contains(item))
+            else if (!newVisible && items.Contains(item))
             {
                 items.Remove(item);
             }
