@@ -5,4 +5,4 @@ To get this added to the framework - request it here
 https://xamarin.uservoice.com/forums/258559-xamarin-forms-suggestions/suggestions/15508584-visibility-of-toolbaritems
 
 Further development moved to Controls repo:
-https://www.youtube.com/watch?v=zD1bsl3AEeI
+https://github.com/InquisitorJax/Wibci.Xamarin.Forms.Controls
